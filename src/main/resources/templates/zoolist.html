@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Piippolan eläintarha</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+	<body>
+		<h1>Piippolan eläintarhan eläimet</h1>
+		<table>
+		<tr>
+				<th>Nimi</th>
+				<th>Sukupuoli</th>
+				<th>Paino</th>
+				<th></th>
+		</tr>
+			<tbody>
+				<tr th:each= "animal : ${animals}">
+					<td th:text="${animal.name}"></td>
+					<td th:text="${animal.sex}"></td>
+					<td th:text="${animal.weight}"></td>
+					<td><a th:href="@{/delete/{id}(id=${animal.id})}">Poista</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/add" class="btn btn-primary">Lisää eläin</a>
+	</body>
+
+
+
+
+</html>
